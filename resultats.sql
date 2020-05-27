@@ -16,6 +16,7 @@ GROUP BY f.Origin;
 
 SELECT f.Origin AS aeroport_origen, f.colYear, f.colMonth, AVG(f.ArrDelay) AS promig_retard_arribades
 FROM flights AS f
+GROUP BY f.Origin,colYear,colMonth
 ORDER BY f.Origin ASC, colYear ASC, colMonth ASC;
 
 -- 4.	Retard promig d’arribada dels vols, per mesos, anys i segons l’aeroport origen 
@@ -26,6 +27,7 @@ SELECT a.City AS nom_ciutat, f.colYear, f.colMonth, AVG(f.ArrDelay) AS promig_re
 FROM flights AS f 
 INNER JOIN usairports AS a
 ON f.Origin = a.IATA
+GROUP BY f.Origin,colYear,colMonth
 ORDER BY f.Origin ASC, colYear ASC, colMonth ASC;
 
 -- 5.	Les companyies amb més vols cancelats, per mesos i any. A més, han d’estar 
