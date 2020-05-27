@@ -14,7 +14,7 @@ GROUP BY f.Origin;
 --      A més, volen que els resultat es mostrin de la següent forma (fixa’t en l’ordre 
 --      de les files):
 
-SELECT f.Origin AS aeroport_origen, f.colYear, f.colMonth, (f.ArrDelay) AS promig_retard_arribades
+SELECT f.Origin AS aeroport_origen, f.colYear, f.colMonth, AVG(f.ArrDelay) AS promig_retard_arribades
 FROM flights AS f
 ORDER BY f.Origin ASC, colYear ASC, colMonth ASC;
 
@@ -22,7 +22,7 @@ ORDER BY f.Origin ASC, colYear ASC, colMonth ASC;
 --      (mateixa consulta que abans i amb el mateix ordre). Però a més, ara volen que 
 --      en comptes del codi de l’aeroport es mostri el nom de la ciutat.
 
-SELECT a.City AS nom_ciutat, f.colYear, f.colMonth, (f.ArrDelay) AS promig_retard_arribades
+SELECT a.City AS nom_ciutat, f.colYear, f.colMonth, AVG(f.ArrDelay) AS promig_retard_arribades
 FROM flights AS f 
 INNER JOIN usairports AS a
 ON f.Origin = a.IATA
